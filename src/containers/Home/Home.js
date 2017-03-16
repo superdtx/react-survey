@@ -1,12 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router';
 
+const Home = () => (
+  <div>
+    <Link to="/survey">Start Survey</Link>
+  </div>
+);
 
-export default class Home extends React.Component {
-  render() {
-    return (
-      <div>
-        this is home
-      </div>
-    );
-  }
-}
+export default Home;

@@ -15,6 +15,7 @@ const Survey = ({ question, options, currActive, id, nextSurvey, prevSurvey, act
         onClick={nextSurvey.bind(null, index, id)}
       >{options[key]}</button>
     ))}
+    {activeOption > -1 ? <button onClick={nextSurvey}>next</button> : null}
   </div>
   : null
 );
