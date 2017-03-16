@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { prevSurvey, nextSurvey } from '../../redux/modules/surveys';
 import SurveyLists from '../../components/SurveyLists/SurveyLists';
+import SurveySubmit from '../../components/SurveySubmit/SurveySubmit';
 
 function mapStateToProps(state) {
   return { surveys: state.surveys };
@@ -18,7 +19,11 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <SurveyLists {...this.props} />
+        {
+          this.props.surveys.currActive === this.props.surveys.mockSurveys.length
+          ? <SurveySubmit {...this.props} />
+          : <SurveyLists {...this.props} />
+        }
       </div>
     );
   }

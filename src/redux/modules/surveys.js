@@ -6,13 +6,10 @@ const PREV = 'cra/surveys/PREV';
 export default function reducer(surveys = {}, action = {}) {
   switch (action.type) {
     case PREV:
-      // todo: edge case
-      return Object.assign({}, surveys, {
+      return surveys.currActive === 0 ? surveys : Object.assign({}, surveys, {
         currActive: surveys.currActive - 1,
       });
-    case NEXT:
-      // todo: submit
-      console.log(surveys);
+    case NEXT: {
       const currentSurvey = Object.assign({}, surveys.mockSurveys[action.id], {
         activeOption: action.index,
       });
@@ -22,6 +19,7 @@ export default function reducer(surveys = {}, action = {}) {
         currActive: surveys.currActive + 1,
         mockSurveys,
       });
+    }
     default: return surveys;
   }
 }
