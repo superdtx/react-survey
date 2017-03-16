@@ -4,22 +4,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { /* actions */ } from '../../redux/modules/foo';
-import Foo from '../../components/Foo/Foo';
+import { prevSurvey, nextSurvey } from '../../redux/modules/surveys';
+import SurveyLists from '../../components/SurveyLists/SurveyLists';
 
 function mapStateToProps(state) {
-  return { properties: state.properties };
+  return { surveys: state.surveys };
 }
 function mapDispatchToProps(dispatch) {
-  return { actions: bindActionCreators({}, dispatch) };
+  return { actions: bindActionCreators({ prevSurvey, nextSurvey }, dispatch) };
 }
 
 class App extends React.Component {
   render() {
     return (
       <div>
-        hello
-        <Foo />
+        <SurveyLists {...this.props} />
       </div>
     );
   }

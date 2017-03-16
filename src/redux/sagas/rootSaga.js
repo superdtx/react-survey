@@ -12,17 +12,11 @@ import axios from 'axios';
 // 1. worker saga
 export function* workerSaga() {
   try {
-    // do async tasks
-    console.log('RUNNING');
     const response = yield call(axios.get, 'https://jsonplaceholder.typicode.com/posts');
-    console.log(response);
-    // dispatch action
-    yield put({ type: 'FOO_ACTION_SUCCEEDED', response: response.data });
+    yield put({ type: 'cra/surveys/LOAD', response: response.data });
   } catch (e) {
     // handle error here
-    console.log('FAILED');
-    console.log(e);
-    yield put({ type: 'FOO_ACTION_FAILED', message: e.message });
+    // yield put({ type: 'FOO_ACTION_FAILED', message: e.message });
   }
 }
 

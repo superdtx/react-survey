@@ -4,10 +4,10 @@
  * rootReducer will be passed in to produce the store
  */
 import { combineReducers } from 'redux';
-import foo from './foo';
+import surveys from './surveys';
 
 const rootReducer = combineReducers({
-  foo,
+  surveys,
 });
 
 export default rootReducer;

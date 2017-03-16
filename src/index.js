@@ -8,8 +8,14 @@ import { Router, browserHistory } from 'react-router';
 
 import createStore from './redux/create';
 import getRoutes from './routes';
+import mockSurveys from './data/mockdata';
 
-const initialState = {};
+const initialState = {
+  surveys: {
+    mockSurveys,
+    currActive: 0,
+  },
+};
 const store = createStore(initialState);
 const routes = getRoutes();
 const component = (
