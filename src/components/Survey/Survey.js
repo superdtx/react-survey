@@ -7,25 +7,48 @@ import Question from '../Elements/Question';
 
 /* eslint-disable no-confusing-arrow */
 const SurveyButton = styled(Button)`
-  background: ${props => props.disabled ? 'black' : 'rgba(255,255,255,0.2)'};
-  color: ${props => props.disabled ? '#bbb' : 'white'};
+  background: rgba(255,255,255,0.2);
+  color: #bbb;
   &:hover {
-    background: ${props => props.disabled ? 'black' : 'white'};
-    color: ${props => props.disabled ? '#bbb' : 'black'};
+    background: white;
+    color: black;
+  }
+`;
+const NavButton = styled(Button)`
+  background: transparent;
+  color: ${props => props.disabled ? '#ccc' : 'white'};
+  border-bottom: ${props => props.disabled ? 'none' : '1px solid white'};
+  text-transform: uppercase;
+  font-size: 2vw;
+  &:hover {
+    color: ${props => props.disabled ? '#aaa' : 'white'};
   }
 `;
 /* eslint-enable */
 
+const HorizontalWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
 const Survey = ({ question, options, currActive, id, nextSurvey, prevSurvey, activeOption }) => (
   (currActive === id)
   ? <Wrapper>
-    <Question>{question}</Question>
-    <div>
+    <HorizontalWrapper>
       {
         currActive !== 0
-          ? <SurveyButton onClick={prevSurvey}>prev</SurveyButton>
-          : <SurveyButton onClick={prevSurvey} disabled>prev</SurveyButton>
+          ? <NavButton onClick={prevSurvey}>prev</NavButton>
+          : <NavButton onClick={prevSurvey} disabled>prev</NavButton>
       }
+      <Question>{question}</Question>
+      {
+        activeOption > -1
+        ? <NavButton onClick={nextSurvey}>next</NavButton>
+        : <NavButton onClick={nextSurvey} disabled>next</NavButton>
+      }
+    </HorizontalWrapper>
+    <div>
       {Object.keys(options).map((key, index) => (
         <SurveyButton
           key={key}
@@ -35,11 +58,6 @@ const Survey = ({ question, options, currActive, id, nextSurvey, prevSurvey, act
           /* eslint-enable */
         >{options[key]}</SurveyButton>
       ))}
-      {
-        activeOption > -1
-        ? <SurveyButton onClick={nextSurvey}>next</SurveyButton>
-        : null
-      }
     </div>
   </Wrapper>
   : null
