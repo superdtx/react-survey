@@ -5,7 +5,7 @@ const SurveyLists = ({ surveys, actions }) => (
   <div>
     {surveys.mockSurveys.map((survey, index) => (
       <Survey
-        key={index}
+        key={survey.id}
         id={index}
         question={survey.text}
         options={survey.options}
@@ -17,5 +17,14 @@ const SurveyLists = ({ surveys, actions }) => (
     ))}
   </div>
 );
+
+SurveyLists.propTypes = {
+  surveys: React.PropTypes.objectOf(
+    React.PropTypes.any.isRequired,
+  ).isRequired,
+  actions: React.PropTypes.objectOf(
+    React.PropTypes.func.isRequired,
+  ).isRequired,
+};
 
 export default SurveyLists;

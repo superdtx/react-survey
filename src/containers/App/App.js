@@ -3,10 +3,14 @@
  */
 import React from 'react';
 
-const App = props => (
+const App = ({ children }) => (
   <div>
-    {props.children}
+    {children}
   </div>
 );
+
+App.propTypes = {
+  children: React.PropTypes.element.isRequired,
+};
 
 export default App;

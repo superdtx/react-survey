@@ -21,4 +21,10 @@ const SurveySubmit = ({ actions: { prevSurvey, submitSurvey } }) => (
   </Wrapper>
 );
 
+SurveySubmit.propTypes = {
+  actions: React.PropTypes.objectOf(
+    React.PropTypes.func.isRequired,
+  ).isRequired,
+};
+
 export default SurveySubmit;

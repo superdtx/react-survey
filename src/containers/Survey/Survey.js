@@ -25,4 +25,10 @@ const Survey = props => (
   </div>
 );
 
+Survey.propTypes = {
+  surveys: React.PropTypes.objectOf(
+    React.PropTypes.any.isRequired,
+  ).isRequired,
+};
+
 export default connect(mapStateToProps, mapDispatchToProps)(Survey);
