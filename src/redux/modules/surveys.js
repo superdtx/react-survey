@@ -1,6 +1,7 @@
 // actions
 const NEXT = 'cra/surveys/NEXT';
 const PREV = 'cra/surveys/PREV';
+const SUBMIT = 'cra/surveys/SUBMIT';
 
 // reducers
 export default function reducer(surveys = {}, action = {}) {
@@ -19,6 +20,9 @@ export default function reducer(surveys = {}, action = {}) {
         currActive: surveys.currActive + 1,
         mockSurveys,
       });
+    }
+    case SUBMIT: {
+      return surveys;
     }
     default: return surveys;
   }

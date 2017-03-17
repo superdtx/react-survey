@@ -3,12 +3,13 @@ import styled from 'styled-components';
 import './Survey.css';
 import Button from '../Elements/Button';
 import Wrapper from '../Elements/Wrapper';
+import Question from '../Elements/Question';
 
 const SurveyButton = styled(Button)`
-  background: black;
+  background: ${props => props.disabled ? 'black' : 'rgba(255,255,255,0.2)'};
   color: ${props => props.disabled ? '#bbb' : 'white'};
   &:hover {
-    background: ${props => props.disabled ? 'black' : 'Cornsilk'};
+    background: ${props => props.disabled ? 'black' : 'white'};
     color: ${props => props.disabled ? '#bbb' : 'black'};
   }
 `;
@@ -16,7 +17,7 @@ const SurveyButton = styled(Button)`
 const Survey = ({ question, options, currActive, id, nextSurvey, prevSurvey, activeOption }) => (
   (currActive === id)
   ? <Wrapper>
-    <h1>{question}</h1>
+    <Question>{question}</Question>
     <div>
       {
         currActive !== 0

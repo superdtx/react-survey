@@ -1,12 +1,23 @@
 import React from 'react';
+import styled from 'styled-components';
 import Button from '../Elements/Button';
 import Wrapper from '../Elements/Wrapper';
+import Question from '../Elements/Question';
 
-const SurveySubmit = ({ actions: { prevSurvey } }) => (
+const SubmitButton = styled(Button)`
+  background: rgba(255,255,255,0.2);
+  color: white;
+  &:hover {
+    background: white;
+    color: black;
+  }
+`;
+
+const SurveySubmit = ({ actions: { prevSurvey, submitSurvey } }) => (
   <Wrapper>
-    <h1>do you want to submit?</h1>
-    <Button onClick={prevSurvey}>go back</Button>
-    <Button>submit</Button>
+    <Question>do you want to submit?</Question>
+    <SubmitButton onClick={prevSurvey}>go back</SubmitButton>
+    <SubmitButton onClick={submitSurvey}>submit</SubmitButton>
   </Wrapper>
 );
 

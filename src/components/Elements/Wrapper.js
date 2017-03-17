@@ -7,6 +7,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: #000;
+  font-family: 'Cormorant Garamond';
 `;
 
 export default Wrapper;

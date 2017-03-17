@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:700');
-
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond');
 /*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
 
 /**
@@ -28,8 +27,6 @@ html {
 
 body {
   margin: 0;
-  color: #fff;
-  background: #333;
 }
 
 /**
@@ -51,7 +48,6 @@ section {
  */
 
 h1 {
-  font-size: 2em;
   margin: 0.67em 0;
 }
 
