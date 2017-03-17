@@ -10,6 +10,8 @@ import createStore from './redux/create';
 import getRoutes from './routes';
 import mockSurveys from './data/mockdata';
 
+import './index.css';
+
 const initialState = {
   surveys: {
     mockSurveys,

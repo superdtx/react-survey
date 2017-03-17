@@ -1,11 +1,13 @@
 import React from 'react';
+import Button from '../Elements/Button';
+import Wrapper from '../Elements/Wrapper';
 
 const SurveySubmit = ({ actions: { prevSurvey } }) => (
-  <div>
+  <Wrapper>
     <h1>do you want to submit?</h1>
-    <button onClick={prevSurvey}>go back</button>
-    <button>submit</button>
-  </div>
+    <Button onClick={prevSurvey}>go back</Button>
+    <Button>submit</Button>
+  </Wrapper>
 );
 
 export default SurveySubmit;
