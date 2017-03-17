@@ -1,4 +1,3 @@
 .active {
-  color: SteelBlue;
-  background: Turquoise;
+  border: steelblue 2px solid;
 }
